@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Route, Link, Switch } from "react-router-dom";
 import Display from "./Display";
-// import Form from "./Form";
+import Form from "./Form";
 
 function App() {
 
@@ -36,7 +36,7 @@ function App() {
     <div className="App">
       <h1>States and Capitals</h1>
       <hr />
-      <Link to="/creat">
+      <Link to="/create">
         <button>Add State</button>
         <button>Add Capital</button>
       </Link>
@@ -44,6 +44,11 @@ function App() {
         <Switch>
           <Route exact path="/" render={(rp) =>
             <Display {...rp} states={states} selectState={selectState} />}/>
+          <Route exact path="/create"
+            render={(rp) => (
+              <Form {...rp} label="Create" state={emptyState} />
+            )}
+          />
           
 
         </Switch>
